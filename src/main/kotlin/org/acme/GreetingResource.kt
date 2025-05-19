@@ -7,6 +7,7 @@ import jakarta.ws.rs.Produces
 import jakarta.ws.rs.core.MediaType
 
 @ApplicationScoped
+@Path("/")
 class GreetingResource {
 
     @GET
