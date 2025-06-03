@@ -16,6 +16,15 @@ object TestProfiles {
         override fun testResources(): List<TestResourceEntry> = listOf (
             TestResourceEntry(WiremockResource::class.java, emptyMap(), true)
         )
+
+        override fun getConfigOverrides(): Map<String, String> {
+            val currentMap = mutableMapOf(
+                "quarkus.lambda.mock-event-server.test-port" to "8082"
+            )
+
+            val configOverrides = super.getConfigOverrides()
+            return (configOverrides + currentMap).toMutableMap()
+        }
     }
 
 }
